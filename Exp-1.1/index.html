@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Student Registration</title>
+
+<style>
+body {
+    font-family: Arial;
+    background-color: #f2f2f2;
+}
+
+.box {
+    width: 350px;
+    background: white;
+    margin: auto;
+    padding: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid red;
+}
+
+/* hide error message by default */
+.error {
+    color: red;
+    font-size: 14px;
+    display: none;
+}
+
+/* show error when input is invalid */
+input:invalid + .error {
+    display: block;
+}
+
+/* green border when correct */
+input:valid {
+    border: 2px solid green;
+}
+
+button {
+    background: black;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+<h2>Student Registration</h2>
+
+<form>
+
+Full Name:<br>
+<input type="text" placeholder="Enter Name" required pattern="[A-Za-z ]{9,50}">
+<div class="error">Must contain 9-50 letters</div>
+<br>
+
+Email:<br>
+<input type="email" placeholder="Enter Email" required>
+<div class="error">Valid email required</div>
+<br>
+
+Age:<br>
+<input type="number" placeholder="Enter Age" min="16" max="30" required>
+<div class="error">Age 16-30 only</div>
+<br>
+
+<button type="submit">Register</button>
+
+</form>
+</div>
+
+</body>
+</html>
