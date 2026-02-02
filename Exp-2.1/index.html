@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Character Counter</title>
+
+    <style>
+       body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0a1324, #0d1b2a, #1b263b);
+    font-family: Arial, sans-serif;
+}
+
+        .container {
+            width: 400px;
+            position: relative;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 12px;
+            border: 2px solid #aaa;
+            resize: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        textarea::placeholder {
+            color: #ddd;
+        }
+
+        .counter {
+            position: absolute;
+            bottom: -30px;
+            right: 5px;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .warning {
+            color: orange;
+        }
+
+        .danger {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <textarea id="message" placeholder="Type your message..." maxlength="150"></textarea>
+        <div id="count" class="counter">0 / 150</div>
+    </div>
+
+    <script>
+        const textarea = document.getElementById("message");
+        const counter = document.getElementById("count");
+        const maxLength = 150;
+
+        textarea.addEventListener("input", function () {
+            let currentLength = textarea.value.length;
+            counter.textContent = currentLength + " / " + maxLength;
+
+            // Visual feedback
+            counter.className = "counter";
+
+            if (currentLength > 120) {
+                counter.classList.add("warning");
+            }
+            if (currentLength === maxLength) {
+                counter.classList.add("danger");
+            }
+        });
+    </script>
+
+</body>
+</html>
